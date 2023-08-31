@@ -1,5 +1,5 @@
-site_name: TEMPLATE
-edit_uri: https://github.com/bgacademy23/TEMPLATE/blob/main/docs
+site_name: hifiasm-telomere
+edit_uri: https://github.com/bgacademy23/hifiasm-telomere/blob/main/docs
 
 nav:
     - Home: README.md
