@@ -2,7 +2,7 @@ image: gitpod/workspace-base
 
 tasks:
 - name: install hifiasm
-  command: |
+  init: |
     cd /workspace
     #hifiasm
     wget https://github.com/chhylp123/hifiasm/archive/refs/tags/0.19.6.tar.gz
@@ -60,6 +60,8 @@ tasks:
     ln -s ../bin/HG002.chr11.10M.ovlp.source.bin HG002.chr11.10M.UL.hic.ovlp.source.bin
     ln -s ../bin/HG002.chr11.10M.ovlp.reverse.bin HG002.chr11.10M.UL.hic.ovlp.reverse.bin
     mv ../bin/*UL*hic* .
+  command: |
+    cd /workspace
 
 
 
