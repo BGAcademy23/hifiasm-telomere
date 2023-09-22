@@ -1,16 +1,34 @@
 image: gitpod/workspace-base
 
 tasks:
-- name: install mamba
+- name: install hifiasm
   command: |
-    curl -L -O "https://github.com/conda-forge/miniforge/releases/latest/download/Mambaforge-$(uname)-$(uname -m).sh"
-    bash Mambaforge-$(uname)-$(uname -m).sh -b -p /workspace/conda && rm Mambaforge-$(uname)-$(uname -m).sh
-    /workspace/conda/bin/mamba init bash
-
-    source ${HOME}/.bashrc
-
-vscode:
-  extensions:
-    - anwar.papyrus-pdf
+    cd /workspace
+    #hifiasm
+    wget https://github.com/chhylp123/hifiasm/archive/refs/tags/0.19.6.tar.gz
+    tar xvzf 0.19.6.tar.gz
+    cd hifiasm-0.19.6
+    make -j16
+    cd ..
+    ln -s hifiasm-0.19.6/hifiasm
+    #yak
+    wget https://github.com/lh3/yak/archive/refs/tags/v0.1.tar.gz
+    tar xvzf v0.1.tar.gz
+    cd yak-0.1
+    make -j16
+    cd ..
+    ln -s yak-0.1/yak
+    #HiFi reads
+    wget https://zenodo.org/record/8368787/files/HG002.HiFi.chr11.10M.fastq.gz
+    #UL reads
+    wget https://zenodo.org/record/8368787/files/HG002.UL.chr11.10M.fastq.gz
+    #pat reads
+    wget https://zenodo.org/record/8368787/files/HG002.pat.chr11.10M.fastq.gz
+    #mat reads
+    wget https://zenodo.org/record/8368787/files/HG002.mat.chr11.10M.fastq.gz
+    #HiC reads
+    wget https://zenodo.org/record/8368787/files/HG002.HiC.chr11.10M.R1.fastq.gz
+    wget https://zenodo.org/record/8368787/files/HG002.HiC.chr11.10M.R2.fastq.gz
+    
 
 workspaceLocation: "/workspace"
