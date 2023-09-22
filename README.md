@@ -42,6 +42,9 @@ cd /workspace/bin/HiFi
 
 /usr/bin/time -v ../hifiasm -o HG002.chr11.10M -t4 ../HG002.HiFi.chr11.10M.fastq.gz &>>bp.asm.log
 
+awk '/^S/{print ">"$2;print $3}' HG002.chr11.10M.bp.hap1.p_ctg.gfa > HG002.chr11.10M.bp.hap1.fa
+awk '/^S/{print ">"$2;print $3}' HG002.chr11.10M.bp.hap2.p_ctg.gfa > HG002.chr11.10M.bp.hap2.fa
+
 ```
 
 2. Let's assemble with HiFi reads and trio-binning 
@@ -51,18 +54,40 @@ cd /workspace/bin/HiFi
 
 /usr/bin/time -v ../hifiasm -o HG002.chr11.10M -t4 -1 HG002.pat.chr11.10M.yak -2 HG002.mat.chr11.10M.yak ../HG002.HiFi.chr11.10M.fastq.gz &>>trio.asm.log
 
+awk '/^S/{print ">"$2;print $3}' HG002.chr11.10M.dip.hap1.p_ctg.gfa > HG002.chr11.10M.trio.hap1.fa
+awk '/^S/{print ">"$2;print $3}' HG002.chr11.10M.dip.hap2.p_ctg.gfa > HG002.chr11.10M.trio.hap2.fa
+
 ```
 
-2. Let's assemble with HiFi and Hi-C reads
+3. Let's assemble with HiFi and Hi-C reads
 
 ```
 cd /workspace/bin/HiFi
 
 /usr/bin/time -v ../hifiasm -o HG002.chr11.10M -t4 --h1 ../HG002.HiC.chr11.10M.R1.fastq.gz --h2 ../HG002.HiC.chr11.10M.R2.fastq.gz ../HG002.HiFi.chr11.10M.fastq.gz &>hic.asm.log
 
+awk '/^S/{print ">"$2;print $3}' HG002.chr11.10M.hic.hap1.p_ctg.gfa > HG002.chr11.10M.hic.hap1.fa
+awk '/^S/{print ">"$2;print $3}' HG002.chr11.10M.hic.hap2.p_ctg.gfa > HG002.chr11.10M.hic.hap2.fa
+
 ```
 
-3. Let's assemble with HiFi, UL and trio reads
+4. Evaluate phasing errors:
+
+```
+cd /workspace/bin/HiFi
+
+../yak trioeval -t4 HG002.pat.chr11.10M.yak HG002.mat.chr11.10M.yak HG002.chr11.10M.bp.hap1.fa
+../yak trioeval -t4 HG002.pat.chr11.10M.yak HG002.mat.chr11.10M.yak HG002.chr11.10M.bp.hap2.fa
+
+../yak trioeval -t4 HG002.pat.chr11.10M.yak HG002.mat.chr11.10M.yak HG002.chr11.10M.trio.hap1.fa
+../yak trioeval -t4 HG002.pat.chr11.10M.yak HG002.mat.chr11.10M.yak HG002.chr11.10M.trio.hap2.fa
+
+../yak trioeval -t4 HG002.pat.chr11.10M.yak HG002.mat.chr11.10M.yak HG002.chr11.10M.hic.hap1.fa
+../yak trioeval -t4 HG002.pat.chr11.10M.yak HG002.mat.chr11.10M.yak HG002.chr11.10M.hic.hap2.fa
+
+```
+
+5. Let's assemble with HiFi, UL and trio reads
 
 ```
 cd /workspace/bin/HiFi_UL_trio
@@ -71,7 +96,7 @@ cd /workspace/bin/HiFi_UL_trio
 
 ```
 
-4. Let's assemble with HiFi, UL and Hi-C reads
+6. Let's assemble with HiFi, UL and Hi-C reads
 
 ```
 cd /workspace/bin/HiFi_UL_hic
