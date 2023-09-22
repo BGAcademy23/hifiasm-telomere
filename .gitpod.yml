@@ -19,16 +19,16 @@ tasks:
     cd ..
     ln -s yak-0.1/yak
     #HiFi reads
-    wget https://zenodo.org/record/8368787/files/HG002.HiFi.chr11.10M.fastq.gz
+    wget https://s3-us-west-2.amazonaws.com/human-pangenomics/submissions/4DE3A234-8903-44C7-8BEF-86C5AF73F5B1--HG002-ASSEMBLY/HG002.HiFi.chr11.10M.fastq.gz
     #UL reads
-    wget https://zenodo.org/record/8368787/files/HG002.UL.chr11.10M.fastq.gz
+    wget https://s3-us-west-2.amazonaws.com/human-pangenomics/submissions/4DE3A234-8903-44C7-8BEF-86C5AF73F5B1--HG002-ASSEMBLY/HG002.UL.chr11.10M.fastq.gz
     #pat reads
-    wget https://zenodo.org/record/8368787/files/HG002.pat.chr11.10M.fastq.gz
+    wget https://s3-us-west-2.amazonaws.com/human-pangenomics/submissions/4DE3A234-8903-44C7-8BEF-86C5AF73F5B1--HG002-ASSEMBLY/HG002.pat.chr11.10M.fastq.gz
     #mat reads
-    wget https://zenodo.org/record/8368787/files/HG002.mat.chr11.10M.fastq.gz
+    wget https://s3-us-west-2.amazonaws.com/human-pangenomics/submissions/4DE3A234-8903-44C7-8BEF-86C5AF73F5B1--HG002-ASSEMBLY/HG002.mat.chr11.10M.fastq.gz
     #HiC reads
-    wget https://zenodo.org/record/8368787/files/HG002.HiC.chr11.10M.R1.fastq.gz
-    wget https://zenodo.org/record/8368787/files/HG002.HiC.chr11.10M.R2.fastq.gz
+    wget https://s3-us-west-2.amazonaws.com/human-pangenomics/submissions/4DE3A234-8903-44C7-8BEF-86C5AF73F5B1--HG002-ASSEMBLY/HG002.HiC.chr11.10M.R1.fastq.gz
+    wget https://s3-us-west-2.amazonaws.com/human-pangenomics/submissions/4DE3A234-8903-44C7-8BEF-86C5AF73F5B1--HG002-ASSEMBLY/HG002.HiC.chr11.10M.R2.fastq.gz
     
 
 workspaceLocation: "/workspace"
