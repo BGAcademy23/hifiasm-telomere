@@ -38,7 +38,7 @@ By the end of this session you will be able to:
 1. Let's assemble only with HiFi reads
    
 ```
-cd /workspace/bin/HiF
+cd /workspace/bin/HiFi
 
 /usr/bin/time -v ../hifiasm -o HG002.chr11.10M -t4 ../HG002.HiFi.chr11.10M.fastq.gz &>>bp.asm.log
 
@@ -47,7 +47,7 @@ cd /workspace/bin/HiF
 2. Let's assemble with HiFi reads and trio-binning 
 
 ```
-cd /workspace/bin/HiF
+cd /workspace/bin/HiFi
 
 /usr/bin/time -v ../hifiasm -o HG002.chr11.10M -t4 -1 HG002.pat.chr11.10M.yak -2 HG002.mat.chr11.10M.yak ../HG002.HiFi.chr11.10M.fastq.gz &>>trio.asm.log
 
@@ -56,7 +56,7 @@ cd /workspace/bin/HiF
 2. Let's assemble with HiFi and Hi-C reads
 
 ```
-cd /workspace/bin/HiF
+cd /workspace/bin/HiFi
 
 /usr/bin/time -v ../hifiasm -o HG002.chr11.10M -t4 --h1 ../HG002.HiC.chr11.10M.R1.fastq.gz --h2 ../HG002.HiC.chr11.10M.R2.fastq.gz ../HG002.HiFi.chr11.10M.fastq.gz &>hic.asm.log
 

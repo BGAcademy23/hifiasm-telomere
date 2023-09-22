@@ -61,7 +61,7 @@ tasks:
     ln -s ../bin/HG002.chr11.10M.ovlp.reverse.bin HG002.chr11.10M.UL.hic.ovlp.reverse.bin
     mv ../bin/*UL*hic* .
   command: |
-    cd /workspace
+    cd /workspace/bin
 
 
 
