@@ -10,14 +10,18 @@ tasks:
     cd hifiasm-0.19.6
     make -j16
     cd ..
-    ln -s hifiasm-0.19.6/hifiasm
+    #ln -s hifiasm-0.19.6/hifiasm
     #yak
     wget https://github.com/lh3/yak/archive/refs/tags/v0.1.tar.gz
     tar xvzf v0.1.tar.gz
     cd yak-0.1
     make -j16
     cd ..
-    ln -s yak-0.1/yak
+    #ln -s yak-0.1/yak
+    mkdir bin
+    cd bin
+    ln -s ../hifiasm-0.19.6/hifiasm
+    ln -s ../yak-0.1/yak
     #HiFi reads
     wget https://s3-us-west-2.amazonaws.com/human-pangenomics/submissions/4DE3A234-8903-44C7-8BEF-86C5AF73F5B1--HG002-ASSEMBLY/HG002.HiFi.chr11.10M.fastq.gz
     #UL reads
